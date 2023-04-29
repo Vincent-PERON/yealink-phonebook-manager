@@ -5,7 +5,11 @@ require('dotenv').config();
 const path = require('path');
 const router = require('./app/router');
 
+const fs = require('fs');
+
+
 app.use(express.urlencoded({ extended: true }));
+
 
 
 // On déclare le dossier statique que l'on envoit au navigateur
