@@ -1,5 +1,18 @@
 <%- include("partials/header.ejs") %>
     
+            <div class="row" style=" margin-top:20px">
+
+              <div class="col-md-10" style="min-height: 5px">
+                  <div class='input-group col-sm-3' style="float:right; ">
+                      <button type="submit" name="submit" class="btn btn-primary" data-toggle="modal" data-target="#flipFlop" style="float:right">Créer un annuaire</button>
+                  </div>
+              </div>
+              <div class="col-md-2"></div>
+              <div class="col-md-5" style="padding-right:0px">
+
+              </div>
+            </div>
+
             <div class="row" >
                 <div class="page-header">
                     <p class="text-center" style="font-size:200%">Liste des annuaires</p>
@@ -9,7 +22,6 @@
                     <div class="container">
                         <div class="row">
                           <div class="col-10">
-                            
 
                             <div class="list-group">
                               <% for (const item of phoneBooks) { %>
@@ -27,5 +39,8 @@
             </div>
     </div>
     
+
+    <%- include("partials/newPhoneBook.ejs") %>
+
 <%- include("partials/footer.ejs") %>
     
