@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-// controllers
+
+// controller
 const phoneController = require('./controllers/phoneController');
 
 

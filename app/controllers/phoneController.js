@@ -1,11 +1,11 @@
 require('dotenv').config();
 const fs = require('fs');
-const { XMLParser, XMLBuilder, XMLValidator} = require("fast-xml-parser");
+const { XMLParser } = require("fast-xml-parser");
 
 const phoneController = {
 
 
-// homepage
+// Page d'accueil
 index: async (req, res) => {
     try {
         const phoneBookFolder = process.env.PHONE_BOOK_FOLDER ;
@@ -18,19 +18,16 @@ index: async (req, res) => {
 },
 
 
-// Show contacts in phone book
+// Affichage des contacts d'un annuare
 showContacts: async (req, res) => {
     try {
         const phoneBookName = req.params.name
         const phoneBookFolder = process.env.PHONE_BOOK_FOLDER 
-        const test = phoneBookFolder + phoneBookName
-        
-        //xml file from https://learn.microsoft.com/en-us/previous-versions/windows/desktop/ms762271(v=vs.85)
-        const xmlFile = fs.readFileSync(test, 'utf8');
+        const phoneBookEntry = phoneBookFolder + phoneBookName
+    
+        const xmlFile = fs.readFileSync(phoneBookEntry, 'utf8');
         const parser = new XMLParser();
         const json = parser.parse(xmlFile);
-        
-        // console.log(`HELOOOOOOOOOO: `, json.YealinkIPPhoneDirectory.DirectoryEntry);
 
         const contacts = json.YealinkIPPhoneDirectory.DirectoryEntry
 
@@ -41,8 +38,6 @@ showContacts: async (req, res) => {
         res.status(500).send('Server Error');
     }
 },
-
-
 
 
 
